@@ -1,0 +1,32 @@
+.list {
+  @apply grid grid-cols-2 gap-4
+    sm:grid-cols-3
+    md:grid-cols-4
+    lg:grid-cols-5;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200
+    hover:scale-105 overflow-hidden;
+}
+
+.imageContainer {
+  @apply aspect-square relative overflow-hidden;
+}
+
+.image {
+  @apply w-full h-full object-contain p-4;
+}
+
+.name {
+  @apply px-4 py-2 text-center text-sm font-medium text-gray-800
+    truncate;
+}
+
+.loadingContainer {
+  @apply flex justify-center items-center min-h-[200px];
+}
+
+.loading {
+  @apply text-lg text-gray-600;
+}
