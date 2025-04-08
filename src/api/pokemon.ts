@@ -1,3 +1,5 @@
+import type { PokemonDetailResponse } from "./types";
+
 interface PokemonListResponse {
   count: number;
   next: string | null;
@@ -6,14 +8,6 @@ interface PokemonListResponse {
     name: string;
     url: string;
   }>;
-}
-
-interface PokemonDetailResponse {
-  id: number;
-  name: string;
-  sprites: {
-    front_default: string;
-  };
 }
 
 export const pokemonApi = {

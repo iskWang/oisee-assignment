@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { digimonApi } from "@/api/digimon";
 import Pagination from "@/Component/Pagination/Pagination";
 import Navigation from "@/Component/Navigation/Navigation";
-import DataList from "@/Component/DataList/DataList";
+import ListView from "@/Component/ListView/ListView";
 
 const DigimonListPresentation = () => {
   const [page, setPage] = useState(1);
@@ -21,7 +21,7 @@ const DigimonListPresentation = () => {
   return (
     <div className={styles.container}>
       <Navigation />
-      <DataList
+      <ListView
         items={data?.content}
         isLoading={isLoading}
         baseUrl="/digimon"

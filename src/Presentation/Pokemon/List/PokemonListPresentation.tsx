@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { pokemonApi } from "@/api/pokemon";
 import Navigation from "@/Component/Navigation/Navigation";
-import DataList from "@/Component/DataList/DataList";
+import ListView from "@/Component/ListView/ListView";
 import Pagination from "@/Component/Pagination/Pagination";
 
 const PokemonListPresentation = () => {
@@ -21,13 +21,15 @@ const PokemonListPresentation = () => {
   const formattedData = data?.results?.map((pokemon) => ({
     id: Number(pokemon.url.split("/")[6]),
     name: pokemon.name,
-    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]}.png`,
+    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+      pokemon.url.split("/")[6]
+    }.png`,
   }));
 
   return (
     <div className={styles.container}>
       <Navigation />
-      <DataList
+      <ListView
         items={formattedData}
         isLoading={isLoading}
         baseUrl="/pokemon"

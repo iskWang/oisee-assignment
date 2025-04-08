@@ -7,13 +7,13 @@ interface DataItem {
   image: string;
 }
 
-interface DataListProps {
+interface ListViewProps {
   items: DataItem[] | undefined;
   isLoading: boolean;
   baseUrl: string;
 }
 
-const DataList = ({ items, isLoading, baseUrl }: DataListProps) => {
+const ListView = ({ items, isLoading, baseUrl }: ListViewProps) => {
   if (isLoading) {
     return (
       <div className={styles.loadingContainer}>
@@ -31,7 +31,12 @@ const DataList = ({ items, isLoading, baseUrl }: DataListProps) => {
           className={styles.card}
         >
           <div className={styles.imageContainer}>
-            <img src={item.image} loading="lazy" alt={item.name} className={styles.image} />
+            <img
+              src={item.image}
+              loading="lazy"
+              alt={item.name}
+              className={styles.image}
+            />
           </div>
           <h2 className={styles.name}>{item.name}</h2>
         </Link>
@@ -40,4 +45,4 @@ const DataList = ({ items, isLoading, baseUrl }: DataListProps) => {
   );
 };
 
-export default DataList;
+export default ListView;

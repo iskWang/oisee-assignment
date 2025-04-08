@@ -1,0 +1,56 @@
+.nav {
+  @apply bg-white shadow-sm mb-6;
+  min-height: 56px; // 統一高度
+  display: flex;
+  align-items: center;
+}
+
+// 詳情頁導航樣式
+.backButton {
+  @apply flex items-center gap-2 px-4 text-gray-900;
+  height: 100%;
+
+  img {
+    @apply w-5 h-5;
+  }
+
+  span {
+    @apply font-medium;
+  }
+}
+
+// 列表頁導航樣式
+.breadcrumbs {
+  @apply flex items-center justify-between px-4;
+  height: 100%;
+  width: 100%;
+}
+
+.homeLink {
+  @apply p-2 rounded-full hover:bg-gray-100;
+
+  img {
+    @apply w-5 h-5 text-gray-600;
+  }
+}
+
+.menu {
+  @apply flex gap-6;
+}
+
+.menuLink {
+  @apply relative py-2 text-sm font-medium text-gray-600 hover:text-gray-900;
+
+  &.active {
+    @apply text-gray-900;
+
+    &:after {
+      content: "";
+      @apply absolute bottom-0 left-0 w-full h-0.5 bg-red-500;
+    }
+  }
+}
+
+.detailName {
+  @apply capitalize;
+}

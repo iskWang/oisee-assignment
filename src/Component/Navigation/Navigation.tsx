@@ -1,43 +1,57 @@
 import { Link, useLocation } from "react-router-dom";
+import cx from "classnames";
+import styles from "./styles.module.scss";
 
-const Navigation = () => {
+interface NavigationProps {
+  onBack?: () => void;
+  detailName?: string;
+}
+
+const Navigation = ({ onBack, detailName }: NavigationProps) => {
   const location = useLocation();
-  const path = location.pathname.split("/")[1];
 
+  // 如果是詳情頁面，顯示返回箭頭和名稱
+  if (onBack && detailName) {
+    return (
+      <nav className={styles.nav}>
+        <button onClick={onBack} className={styles.backButton}>
+          <img
+            src="https://cdn.jsdelivr.net/npm/heroicons@1.0.1/outline/arrow-left.svg"
+            alt="Back"
+          />
+          <span className={styles.detailName}>{detailName}</span>
+        </button>
+      </nav>
+    );
+  }
+
+  // 如果是列表頁面，顯示導航
   return (
-    <nav className="bg-white shadow-sm mb-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <Link
-              to="/"
-              className="flex items-center px-4 text-2xl font-bold text-gray-800"
-            >
-              Pokedex
-            </Link>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link
-                to="/pokemon"
-                className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                  path === "pokemon"
-                    ? "border-red-500 text-gray-900"
-                    : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                }`}
-              >
-                Pokemon
-              </Link>
-              <Link
-                to="/digimon"
-                className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                  path === "digimon"
-                    ? "border-red-500 text-gray-900"
-                    : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                }`}
-              >
-                Digimon
-              </Link>
-            </div>
-          </div>
+    <nav className={styles.nav}>
+      <div className={styles.breadcrumbs}>
+        <Link to="/" className={styles.homeLink}>
+          <img
+            src="https://cdn.jsdelivr.net/npm/heroicons@1.0.1/outline/home.svg"
+            alt="Home"
+          />
+        </Link>
+        <div className={styles.menu}>
+          <Link
+            to="/pokemons"
+            className={cx(styles.menuLink, {
+              [styles.active]: location.pathname.startsWith("/pokemons"),
+            })}
+          >
+            Pokemon
+          </Link>
+          <Link
+            to="/digimons"
+            className={cx(styles.menuLink, {
+              [styles.active]: location.pathname.startsWith("/digimons"),
+            })}
+          >
+            Digimon
+          </Link>
         </div>
       </div>
     </nav>

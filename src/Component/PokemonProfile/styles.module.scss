@@ -1,0 +1,76 @@
+.container {
+  @apply bg-white rounded-lg shadow-sm p-6;
+}
+
+.header {
+  @apply flex gap-6 mb-8;
+}
+
+.imageContainer {
+  @apply flex-shrink-0;
+}
+
+.image {
+  @apply w-48 h-48 object-contain bg-gray-50 rounded-lg;
+}
+
+.info {
+  @apply flex-grow;
+}
+
+.name {
+  @apply capitalize text-3xl font-bold text-gray-900 mb-4;
+}
+
+.metadata {
+  @apply space-y-4;
+}
+
+.section {
+  h3 {
+    @apply text-sm font-medium text-gray-500 mb-2;
+  }
+}
+
+.tags {
+  @apply flex flex-wrap gap-2;
+}
+
+.tag {
+  @apply px-3 py-1 text-sm font-medium rounded-full bg-red-100 text-red-800;
+}
+
+.physicalInfo {
+  @apply space-y-1 text-sm text-gray-600;
+
+  span {
+    @apply font-medium text-gray-900;
+  }
+}
+
+.stats {
+  h2 {
+    @apply text-xl font-bold text-gray-900 mb-4;
+  }
+}
+
+.statsList {
+  @apply space-y-3;
+}
+
+.statItem {
+  @apply flex items-center gap-4;
+}
+
+.statName {
+  @apply w-24 text-sm font-medium text-gray-600;
+}
+
+.statBar {
+  @apply flex-grow bg-gray-100 rounded-full h-6 overflow-hidden;
+}
+
+.statValue {
+  @apply h-full bg-red-500 text-white text-sm font-medium flex items-center justify-end pr-2;
+  transition: width 0.3s ease-in-out;
+}

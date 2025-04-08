@@ -19,7 +19,7 @@
 }
 
 .name {
-  @apply px-4 py-2 text-center text-sm font-medium text-gray-800
+  @apply capitalize px-4 py-2 text-center text-sm font-medium text-gray-800
     truncate;
 }
 
