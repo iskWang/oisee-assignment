@@ -1,0 +1,32 @@
+.container {
+  @apply w-full px-4 mx-auto
+    sm:max-w-[640px]
+    md:max-w-[768px]
+    lg:max-w-[1024px]
+    xl:max-w-[1280px];
+}
+
+.title {
+  @apply text-2xl font-bold mb-4
+    md:text-3xl md:mb-6;
+}
+
+.grid {
+  @apply flex flex-wrap gap-3
+    md:gap-4;
+}
+
+.card {
+  @apply w-full p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow
+    md:p-6 md:basis-[calc(50%-0.5rem)];
+}
+
+.cardTitle {
+  @apply text-xl font-semibold mb-2
+    md:text-2xl;
+}
+
+.cardDescription {
+  @apply text-sm text-gray-600
+    md:text-base;
+}
