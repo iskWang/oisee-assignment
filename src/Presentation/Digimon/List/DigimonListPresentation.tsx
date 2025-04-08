@@ -28,7 +28,7 @@ const DigimonListPresentation = () => {
       />
       {data?.pageable && (
         <Pagination
-          currentPage={data.pageable.pageNumber + 1}
+          currentPage={page}
           totalPages={data.pageable.totalPages}
           onPageChange={handlePageChange}
         />
