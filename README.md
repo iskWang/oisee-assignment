@@ -2,6 +2,9 @@
 
 A web application that allows users to explore Pokemon and Digimon data using their respective APIs.
 
+## Demo site
+[https://me.josh.com.tw/oisee-assignment](https://me.josh.com.tw/oisee-assignment)
+
 ## Features
 
 - **Pokemon Explorer**
