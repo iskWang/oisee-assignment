@@ -1,21 +1,23 @@
 import styles from "./styles.module.scss";
-import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { digimonApi } from "@/api/digimon";
 import Pagination from "@/Component/Pagination/Pagination";
 import Navigation from "@/Component/Navigation/Navigation";
 import ListView from "@/Component/ListView/ListView";
 
 const DigimonListPresentation = () => {
-  const [page, setPage] = useState(1);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const currentPage = Number(searchParams.get("page")) || 1;
 
   const { data, isLoading } = useQuery({
-    queryKey: ["digimons", page],
-    queryFn: () => digimonApi.getList(page),
+    queryKey: ["digimons", currentPage],
+    queryFn: () => digimonApi.getList(currentPage),
   });
 
   const handlePageChange = (newPage: number) => {
-    setPage(newPage);
+    navigate(`/digimons?page=${newPage}`);
   };
 
   return (
@@ -28,7 +30,7 @@ const DigimonListPresentation = () => {
       />
       {data?.pageable && (
         <Pagination
-          currentPage={page}
+          currentPage={currentPage}
           totalPages={data.pageable.totalPages}
           onPageChange={handlePageChange}
         />

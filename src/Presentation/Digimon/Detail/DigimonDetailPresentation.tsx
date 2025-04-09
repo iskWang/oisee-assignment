@@ -17,10 +17,7 @@ const DigimonDetailPresentation = () => {
 
   return (
     <div className={styles.container}>
-      <Navigation
-        onBack={() => navigate("/digimons")}
-        detailName={data?.name}
-      />
+      <Navigation onBack={() => navigate(-1)} detailName={data?.name} />
       {isLoading ? (
         <div>Loading...</div>
       ) : (
@@ -34,14 +31,13 @@ const DigimonDetailPresentation = () => {
               types={data.types.map((type) => type.type)}
               attributes={data.attributes.map((attr) => attr.attribute)}
               levels={data.levels.map((level) => level.level)}
-              skills={data.skills
-                .slice(0, 6)
-                .map((skill) => ({
-                  skill: skill.skill,
-                  description: skill.description,
-                }))}
+              skills={data.skills.slice(0, 6).map((skill) => ({
+                skill: skill.skill,
+                description: skill.description,
+              }))}
               description={
-                data.descriptions.find((d) => d.language === "en_us")?.description
+                data.descriptions.find((d) => d.language === "en_us")
+                  ?.description
               }
               releaseDate={data.releaseDate}
             />

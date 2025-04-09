@@ -1,21 +1,23 @@
 import styles from "./styles.module.scss";
-import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { pokemonApi } from "@/api/pokemon";
 import Navigation from "@/Component/Navigation/Navigation";
 import ListView from "@/Component/ListView/ListView";
 import Pagination from "@/Component/Pagination/Pagination";
 
 const PokemonListPresentation = () => {
-  const [page, setPage] = useState(1);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const currentPage = Number(searchParams.get("page")) || 1;
 
   const { data, isLoading } = useQuery({
-    queryKey: ["pokemons", page],
-    queryFn: () => pokemonApi.getList(page),
+    queryKey: ["pokemons", currentPage],
+    queryFn: () => pokemonApi.getList(currentPage),
   });
 
   const handlePageChange = (newPage: number) => {
-    setPage(newPage);
+    navigate(`/pokemons?page=${newPage}`);
   };
 
   const formattedData = data?.results?.map((pokemon) => ({
@@ -36,7 +38,7 @@ const PokemonListPresentation = () => {
       />
       {data && (
         <Pagination
-          currentPage={page}
+          currentPage={currentPage}
           totalPages={Math.ceil(data.count / 20)}
           onPageChange={handlePageChange}
         />

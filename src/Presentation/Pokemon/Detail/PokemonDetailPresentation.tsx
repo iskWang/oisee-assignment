@@ -17,10 +17,7 @@ const PokemonDetailPresentation = () => {
 
   return (
     <div className={styles.container}>
-      <Navigation
-        onBack={() => navigate("/pokemons")}
-        detailName={data?.name}
-      />
+      <Navigation onBack={() => navigate(-1)} detailName={data?.name} />
       {isLoading ? (
         <div>Loading...</div>
       ) : (
