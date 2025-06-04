@@ -7,11 +7,11 @@ const HomePresentation = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>Welcome to Pokemon x Digimon</h1>
       <div className={styles.grid}>
-        <Link to="/pokemon" className={styles.card}>
+        <Link to="/pokemons" className={styles.card}>
           <h2 className={styles.cardTitle}>Pokemon</h2>
           <p className={styles.cardDescription}>Explore the world of Pokemon</p>
         </Link>
-        <Link to="/digimon" className={styles.card}>
+        <Link to="/digimons" className={styles.card}>
           <h2 className={styles.cardTitle}>Digimon</h2>
           <p className={styles.cardDescription}>Discover Digital Monsters</p>
         </Link>
